@@ -6,21 +6,6 @@
     <title>Font Smoothing Test Page</title>
     <link rel="stylesheet" href="fonts/droidsans_regular/stylesheet.css" type="text/css" charset="utf-8" />
     <script type="text/javascript" src="TypeHelpers.js"></script>
-    <script type="text/javascript">
-        // This script uses hasFontSmoothing() and displays its information in a user-friendly way
-        "use strict";
-        function displayInfo() {
-            var message = "We could not detect if font-smoothing is being used.";
-            var isFontSmoothingOn = TypeHelpers.hasSmoothing();
-            if (isFontSmoothingOn === true) {
-                message = "This browser is using a font-smoothing technology";
-            } else if (isFontSmoothingOn === false) {
-                message = "This browser isn't using a font-smoothing technology";
-            }
-            document.getElementById("detectInfo").innerHTML = message;
-        }
-        window.onload = displayInfo;
-    </script>
 
     <style type="text/css">
         body {
@@ -46,5 +31,20 @@
         your browser. For more information, please see <a href="http://www.useragentman.com/blog/?p=338">my blog post on
 		the subject</a>.</p>
 </body>
+
+<script type="text/javascript">
+    // This script uses hasFontSmoothing() and displays its information in a user-friendly way
+    "use strict";
+    (function () {
+        var message = "We could not detect if font-smoothing is being used.";
+        var isFontSmoothingOn = TypeHelpers.hasSmoothing();
+        if (isFontSmoothingOn === true) {
+            message = "This browser is using a font-smoothing technology";
+        } else if (isFontSmoothingOn === false) {
+            message = "This browser isn't using a font-smoothing technology";
+        }
+        document.getElementById("detectInfo").innerHTML = message;
+    })();
+</script>
 
 </html>
