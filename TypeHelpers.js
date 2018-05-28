@@ -68,8 +68,11 @@ var TypeHelpers = new function () {
             // didn't find any non-black pixels - return false.
             return false;
         } catch (ex) {
-            // Something went wrong (for example, Opera cannot use the
-            // canvas fillText() method.  Return null (unknown).
+            // Something went wrong (for example, Opera cannot use the canvas fillText() method).
+            // Fall back to registry settings check (for IE6 - IE8).
+            if (typeof (screen.fontSmoothingEnabled) !== "undefined")
+                return screen.fontSmoothingEnabled;
+            // Cannot detect font smoothing.
             return null;
         }
     };
