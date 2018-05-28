@@ -27,6 +27,8 @@
  *
  */
 
+"use strict";
+
 var TypeHelpers = new function () {
     var me = this;
 
@@ -60,11 +62,10 @@ var TypeHelpers = new function () {
                     var imageData = ctx.getImageData(i, j, 1, 1).data;
                     var alpha = imageData[3];
 
-                    if (alpha != 255 && alpha != 0) {
+                    if (alpha !== 255 && alpha !== 0) {
                         return true; // font-smoothing must be on.
                     }
                 }
-
             }
 
             // didn't find any non-black pixels - return false.
@@ -79,13 +80,12 @@ var TypeHelpers = new function () {
     me.insertClasses = function () {
         var result = me.hasSmoothing();
         var htmlNode = document.getElementsByTagName("html")[0];
-        if (result == true) {
+        if (result === true) {
             htmlNode.className += " hasFontSmoothing-true";
-        } else if (result == false) {
+        } else if (result === false) {
             htmlNode.className += " hasFontSmoothing-false";
         } else { // result == null
             htmlNode.className += " hasFontSmoothing-unknown";
         }
     };
-
-}();
+};
