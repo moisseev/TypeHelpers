@@ -7,19 +7,15 @@
     <link rel="stylesheet" href="fonts/droidsans_regular/stylesheet.css" type="text/css" charset="utf-8" />
     <script type="text/javascript" src="TypeHelpers.js"></script>
     <script type="text/javascript">
-        /*
-         * This script uses hasFontSmoothing() and displays its information
-         * in a user-friendly way
-         */
+        // This script uses hasFontSmoothing() and displays its information in a user-friendly way
+        "use strict";
         function displayInfo() {
-            var message;
+            var message = "We could not detect if font-smoothing is being used.";
             var isFontSmoothingOn = TypeHelpers.hasSmoothing();
-            if (isFontSmoothingOn == true) {
+            if (isFontSmoothingOn === true) {
                 message = "This browser is using a font-smoothing technology";
-            } else if (isFontSmoothingOn == false) {
-                message = "This browser isn't using a font-smoothing technology"
-            } else {
-                message = "We could not detect if font-smoothing is being used."
+            } else if (isFontSmoothingOn === false) {
+                message = "This browser isn't using a font-smoothing technology";
             }
             document.getElementById("detectInfo").innerHTML = message;
         }
