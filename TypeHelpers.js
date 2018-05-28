@@ -31,14 +31,7 @@ var TypeHelpers = new function(){
    var me = this;
    
    me.hasSmoothing = function(){
-   
-      // IE has screen.fontSmoothingEnabled - sweet!      
-      if (typeof(screen.fontSmoothingEnabled) != "undefined") {
-         return screen.fontSmoothingEnabled;  
-      } else {
-	  	
          try {
-          
             // Create a 35x35 Canvas block.
             var canvasNode = document.createElement("canvas");
             canvasNode.width = "35";
@@ -82,7 +75,6 @@ var TypeHelpers = new function(){
             // canvas fillText() method.  Return null (unknown).
             return null;
          }
-      }
    }
    
    me.insertClasses = function(){
