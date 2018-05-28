@@ -1,9 +1,9 @@
+/*!
+ * TypeHelpers 1.1.0 (https://github.com/moisseev/TypeHelpers)
+ * Copyright (c) 2018 Alexander Moisseev, Nov 24 2009 Zoltan Hawryluk, MIT
+ */
+
 /*
- * TypeHelpers version 1.0
- * Zoltan Hawryluk, Nov 24 2009.
- *
- * Released under the MIT License. http://www.opensource.org/licenses/mit-license.php
- *
  * Works for
  *   - IE6+ (Windows),
  *   - Firefox 3.5+ (Windows, Mac, Linux),
@@ -24,7 +24,6 @@
  *     "hasFontSmoothing-true" if font smoothing is enabled
  *     "hasFontSmoothing-false" if it isn't
  *     "hasFontSmoothing-unknown" if it cannot detect it.
- *
  */
 
 "use strict";
@@ -58,10 +57,8 @@ var TypeHelpers = new function () {
             // so we return true.
             for (var j = 8; j <= 32; j++) {
                 for (var i = 1; i <= 32; i++) {
-
                     var imageData = ctx.getImageData(i, j, 1, 1).data;
                     var alpha = imageData[3];
-
                     if (alpha !== 255 && alpha !== 0) {
                         return true; // font-smoothing must be on.
                     }
@@ -88,4 +85,4 @@ var TypeHelpers = new function () {
             htmlNode.className += " hasFontSmoothing-unknown";
         }
     };
-};
+}();
