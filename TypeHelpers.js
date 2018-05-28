@@ -98,11 +98,3 @@ var TypeHelpers = new function(){
    }
    
 }
-
-
-// if EventHelpers.js is included, insert the hasFontSmoothing CSS classes
-if (window.EventHelpers) {
-   EventHelpers.addPageLoadEvent("TypeHelpers.insertClasses")
-}
-   
-
