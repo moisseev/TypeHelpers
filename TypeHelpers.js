@@ -67,10 +67,12 @@ var TypeHelpers = new function () {
 
             // didn't find any non-black pixels - return false.
             return false;
+        // Something went wrong (for example, Opera cannot use the canvas fillText() method).
         } catch (ex) {
-            // Something went wrong (for example, Opera cannot use the canvas fillText() method).
+            // Detect IE6-9 version.
+            var ie = window.ActiveXObject ? Number(/msie\s(\d+)/i.exec(navigator.userAgent)[1]) : NaN;
             // Fall back to registry settings check (for IE6 - IE8).
-            if (typeof (screen.fontSmoothingEnabled) !== "undefined")
+            if (ie < 9 && typeof (screen.fontSmoothingEnabled) !== "undefined")
                 return screen.fontSmoothingEnabled;
             // Cannot detect font smoothing.
             return null;
