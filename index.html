@@ -36,14 +36,18 @@
     // This script uses hasFontSmoothing() and displays its information in a user-friendly way
     "use strict";
     (function () {
-        var message = "We could not detect if font-smoothing is being used.";
+        var message = "We could not detect if font-smoothing is being used";
+        var color = "#e7e7ff";
         var isFontSmoothingOn = TypeHelpers.hasSmoothing();
         if (isFontSmoothingOn === true) {
             message = "This browser is using a font-smoothing technology";
+            color = "#ffe7e7";
         } else if (isFontSmoothingOn === false) {
             message = "This browser isn't using a font-smoothing technology";
+            color = "#e7ffe7";
         }
         document.getElementById("detectInfo").innerHTML = message;
+        document.getElementById("detectInfo").style.backgroundColor = color;
     })();
 </script>
 
