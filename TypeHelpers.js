@@ -6,7 +6,7 @@
 /*
  * Works for
  *   - IE6+ (Windows),
- *   - Firefox 3.5+ (Windows, Mac, Linux),
+ *   - Firefox 3.5 - 20.0.1, 51.0+ (Windows, Mac, Linux),
  *   - Safari 4+ (Windows, Mac OS X),
  *   - Chrome 3.0+ (Windows).
  * Opera 10.10 and under reports unknown support for font-smoothing.
@@ -33,6 +33,11 @@ var TypeHelpers = new function () {
 
     me.hasSmoothing = function () {
         try {
+            // Cannot detect font smoothing
+            // since Firefox 21.0 - 50.1.0 always smooth canvas images (tested on Windows XP)
+            var ff = (/Firefox\/(\d+\.\d+)/).exec(navigator.userAgent);
+            if (ff && ff[1] >= 21 && ff[1] < 51) return null;
+
             // Create a 35x35 Canvas block.
             var canvasNode = document.createElement("canvas");
             canvasNode.width = "35";
