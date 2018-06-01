@@ -87,12 +87,15 @@ var TypeHelpers = new function () {
     me.insertClasses = function () {
         var result = me.hasSmoothing();
         var htmlNode = document.getElementsByTagName("html")[0];
+        if (htmlNode.className) {
+            htmlNode.className += " ";
+        }
         if (result === true) {
-            htmlNode.className += " hasFontSmoothing-true";
+            htmlNode.className += "hasFontSmoothing-true";
         } else if (result === false) {
-            htmlNode.className += " hasFontSmoothing-false";
+            htmlNode.className += "hasFontSmoothing-false";
         } else { // result == null
-            htmlNode.className += " hasFontSmoothing-unknown";
+            htmlNode.className += "hasFontSmoothing-unknown";
         }
     };
 }();
