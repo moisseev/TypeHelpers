@@ -1,5 +1,6 @@
 {
 	"devDependencies": {
     	"eslint": "*"
-  	}
+  	},
+  	"eslintIgnore": ["*.min.js"]
 }
