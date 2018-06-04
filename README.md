@@ -40,3 +40,9 @@ For development you can also use links to the latest version. Do not use these l
   * **hasFontSmoothing-true** if font smoothing is being used;
   * **hasFontSmoothing-false** if it is not;
   * **hasFontSmoothing-unknown** if it cannot be detected if font smoothing is on or not.
+
+## See also
+
+[The price of smooth looks: Anti-aliased fonts hurt eyes and damage eyesight](http://annystudio.com/misc/anti-aliased-fonts-hurt/)
+
+[How to Detect Font-Smoothing Using JavaScript](http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing-using-javascript/)
